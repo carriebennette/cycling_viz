@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<meta name="viewport" content="user-scalable = yes">
+
+		<title>Visualizing WorldTour team transfers in 2021</title>
+		<meta name="author" content="Carrie Bennette">
+		<meta name="description" content="Visualizing WorldTour team transfers 2020 to 2021">
+		<meta name="keywords" content="data visualization, information visualization, dataviz, datavis, infoviz, infovis, cycling">
+
+		<!--- Twitter things --->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="carriebennette.com/cycling_viz">
+		<meta name="twitter:creator" content="@CarrieBennette">
+		<meta name="twitter:title" content="Pros of the Peloton: who's in and who's out for the 2021 UCI Men's WorldTour">
+		<meta name="twitter:description" content="Interactive visualization showing all rider transfers in the 2021 UCI Men's WorldTour">
+		<meta name="twitter:image" content="www.carriebennette.com/cycling_viz/imgs/cycling-large.jpg">
+
+		<!-- Google fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+		<!-- CSS Styling -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- D3 -->
+		<script src="https://d3js.org/d3.v5.js"></script> 
+		<script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+
+	</head>
+	<body>
+		
+		<!-- create the sankey diagram! -->
+		<div class = "container">
+	
+			<div id = "heading">
+				<h1>Pros in the Peloton</h1>
+				<h2>Who's in and who's out of the 2021 UCI Men's WorldTour</h2> 
+				<br>
+				<div>
+			  			
+					<br>
+            		</div>
+           	</div>
+
+			<div id = "chart">
+				<svg id = "canvas"></svg>
+				<script src="js/load_data.js"></script>
+				<script src="js/script_horizontal.js"></script>
+			</div>
+
+			<div id="teamCaption" class = "hidden text caption"></div>
+			<p id="default" class = "text">Hover over teams to see additional details<br><br>
+				Visualization by Carrie Bennette  <a class="social_favicon" title="Find me on Twitter" href="https://twitter.com/carriebennette" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                		|  Words by Nick Bennette <a class="social_favicon" title="Find me on Twitter" href="https://twitter.com/LionOfPrinceton" target="_blank">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+							<br></p>
+			
+			<div id="riderIn" class = "hidden text"></div>
+			<div id="riderOut" class = "hidden text"></div>
+
+			<div id="riderStay" class = "hidden text"></div>
+
+			<p id="filler" class = "text">
+				Fill<br><br><br><br><br><br><br><br><br><br>
+				this<br><br><br><br><br><br><br><br><br><br>
+				space<br><br><br><br><br><br><br><br><br><br></p>
+
+		</div>
+
+		<div id="tooltip" class="hidden text"></div>
+
+  </body>   	
+
+</html>
