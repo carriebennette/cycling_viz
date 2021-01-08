@@ -2,8 +2,8 @@
     
     const margin_x = 30;
     const margin_y = 0;
-    const width = 100;
-    const height = 80;
+    const width = 80;
+    const height = 120;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
     const nodePadding = 0.5;
