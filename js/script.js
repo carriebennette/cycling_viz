@@ -242,7 +242,7 @@
     const svg = d3.select("#canvas")
                   .attr("viewBox", `0 0 ${width} ${height}`)
                   .style("background-color", svgBackground)
-                  .attr("transform", `translate(300 ,${margin_y})`)
+                  .attr("transform", `translate(350 ,${margin_y})`)
                   .append("g");
     
     // Define our sankey instance
