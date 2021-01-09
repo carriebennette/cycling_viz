@@ -275,7 +275,7 @@
 
         svgNodeswide.append('svg:image')
                       .classed("logo", true)
-                      .attr("x", d => d.x0 - 25)
+                      .attr("x", d => d.x0 - 20)
                       .attr("y", d => d.y0 )
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
