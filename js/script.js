@@ -1,9 +1,9 @@
 (function () {
     
-    const margin_x = 30;
-    const margin_y = 50;
-    const width = 80;
-    const height = 120;
+    const margin_x = 20;
+    const margin_y = 0;
+    const width = 30;
+    const height = 100;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
     const nodePadding = 0.5;
