@@ -1,7 +1,7 @@
 (function () {
     
     const margin_x = 20;
-    const margin_y = 0;
+    const margin_y = 10;
     const width = 30;
     const height = 100;
     const svgBackground = "#fff";
@@ -246,7 +246,7 @@
                   .append("g");
     
     // Define our sankey instance
-    const graphSize = [width/2, height];
+    const graphSize = [width/1.25, height];
     const sankey = d3.sankey()
                      .size(graphSize)
                      .nodeId(d => d.id)
