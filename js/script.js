@@ -134,20 +134,10 @@
       d3.select("#default")
           .classed("hidden", true);
 
-      d3.select("#teamCaption")
+      d3.select("#tooltip")
+          .style("left", (d3.event.pageX - 20) + "px")   
+          .style("top", (d3.event.pageY + 20) + "px")
           .html('<p>' + tooltip[d].caption + "</p>")
-          .classed("hidden", false);
-
-      d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>"  + tooltip[d].in.join("<br>") + "</p>")
-          .classed("hidden", false);
-
-      d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
-          .classed("hidden", false);
-      
-      d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -162,17 +152,9 @@
               d3.select("#default")
           .classed("hidden", false);
 
-      d3.select("#teamCaption")
+      d3.select("#tooltip")
         .classed("hidden", true);
 
-      d3.select("#riderIn")
-        .classed("hidden", true);
-
-      d3.select("#riderOut")
-        .classed("hidden", true);
-
-      d3.select("#riderStay")
-        .classed("hidden", true);
     }
 
     function mouseoverLogo(node, d) {
@@ -185,21 +167,11 @@
       d3.select("#default")
           .classed("hidden", true);
 
-      d3.select("#teamCaption")
+      d3.select("#tooltip")
+        .style("left", (d3.event.pageX - 20) + "px")   
+        .style("top", (d3.event.pageY + 20) + "px")
         .html('<p>' + tooltip[d].caption + "</p>")
         .classed("hidden", false);
-
-      d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>" + tooltip[d].in.join("<br>") + "</p>")
-          .classed("hidden", false);
-
-      d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
-          .classed("hidden", false);
-
-      d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
-          .classed("hidden", false);
 
     }
   
@@ -211,16 +183,7 @@
       d3.select("#default")
           .classed("hidden", false);
 
-      d3.select("#teamCaption")
-        .classed("hidden", true);
-
-      d3.select("#riderIn")
-        .classed("hidden", true);
-
-      d3.select("#riderOut")
-        .classed("hidden", true);
-
-      d3.select("#riderStay")
+      d3.select("#tooltip")
         .classed("hidden", true);
     }
  
