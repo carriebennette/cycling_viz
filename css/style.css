@@ -69,6 +69,10 @@ h2 {
 		grid-column-end: 6;
 		grid-row: span 1;
 	}
+	
+	.hide-desktop{
+		display: none;
+	}
 }
 
 #teamCaption {
