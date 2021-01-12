@@ -139,15 +139,15 @@
           .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>"  + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "THE NEW BLOOD </p><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT THE SQUAD</p><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
-      
+
       d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -190,15 +190,15 @@
         .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "THE NEW BLOOD </p><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "LEFT THE SQUAD</p><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "STUCK AROUND </p><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -280,7 +280,7 @@
                       .attr("width", d => d.height)
                       .attr("height", d => d.width*margin_x/2)
                       .attr("transform", function(d){
-                          return "translate(-15, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;})
+                          return "translate(-14, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;})
                       .filter(function(d) { return d.x0 < width / 4; })
                       .attr('href', function(d,i) { return "imgs/" + d.id + '.png';}) 
                       .attr("opacity", 1)
@@ -289,7 +289,7 @@
 
         svgNodeswide.append("rect")
                       .classed("logo", true)
-                      .attr("x", d => d.x0-19)
+                      .attr("x", d => d.x0-20)
                       .attr("y", d => d.y0)
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
