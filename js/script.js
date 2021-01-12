@@ -2,7 +2,7 @@
     
     const margin_x = 20;
     const margin_y = 10;
-    const width = 30;
+    const width = 40;
     const height = 100;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
@@ -132,7 +132,7 @@
 
       console.log(tooltip);
       d3.select("#default")
-          .classed("hidden", true);
+        .classed("hidden", true);
 
       d3.select("#tooltip")
           .style("left", (d3.event.pageX - 20) + "px")   
@@ -149,7 +149,7 @@
       svg.selectAll("rect.node")
         .transition().duration(200)
         .attr("opacity", nodeOpacity);
-              d3.select("#default")
+      d3.select("#default")
           .classed("hidden", false);
 
       d3.select("#tooltip")
@@ -183,8 +183,9 @@
       d3.select("#default")
           .classed("hidden", false);
 
-      d3.select("#tooltip")
+      d3.select("#teamCaption")
         .classed("hidden", true);
+
     }
  
     function reduceUnique(previous, current) {
@@ -205,7 +206,7 @@
     const svg = d3.select("#canvas")
                   .attr("viewBox", `0 0 ${width} ${height}`)
                   .style("background-color", svgBackground)
-                  .attr("transform", `translate(350 ,${margin_y})`)
+                  .attr("transform", `translate(350,${margin_y})`)
                   .append("g");
     
     // Define our sankey instance
@@ -250,7 +251,7 @@
 
         svgNodeswide.append("rect")
                       .classed("logo", true)
-                      .attr("x", d => d.x0 - 20)
+                      .attr("x", d => d.x0 - 10)
                       .attr("y", d => d.y0)
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
