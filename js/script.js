@@ -2,8 +2,8 @@
     
     const margin_x = 30;
     const margin_y = 0;
-    const width = 50;
-    const height = 50;
+    const width = 100;
+    const height = 80;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
     const nodePadding = 0.5;
@@ -65,7 +65,7 @@
       d3.select("#tooltip")
         .style("left", (d3.event.pageX - 20) + "px")   
         .style("top", (d3.event.pageY + 20) + "px")
-        .html('<p class= "tooltip-rider">' + d.rider + "</p><br>" + 
+        .html('<p class= "tooltip-rider">' + d.rider + "</p>" + 
             '<p class= "tooltip-team">' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
         .classed("hidden", false);
     }
@@ -139,15 +139,15 @@
           .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p>' + "<u>Joined: <br></u>"  + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
-
+      
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -190,15 +190,15 @@
         .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p>' + "<u>Joined: <br></u>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -242,20 +242,18 @@
     const svg = d3.select("#canvas")
                   .attr("viewBox", `0 0 ${width} ${height}`)
                   .style("background-color", svgBackground)
-                  .attr("transform", "translate(0," + height + ")rotate(-270)")
-                  .attr("style", function(d){
-                          return "-webkit-transform:transform", "translate(0," + height + ")rotate(-270)";})
+                  .attr("transform", `translate(300 ,${margin_y})`)
                   .append("g");
     
     // Define our sankey instance
-    const graphSize = [width/3.5, height];
+    const graphSize = [width/2, height];
     const sankey = d3.sankey()
                      .size(graphSize)
                      .nodeId(d => d.id)
                      .nodeWidth(nodeWidth)
                      .nodePadding(nodePadding)
                      .nodeAlign(nodeAlignment)
-                     .nodeSort(function(a, b) {return d3.ascending(a.value, b.value); });
+                     .nodeSort(function(a, b) {return d3.descending(a.value, b.value); });
     let graph = sankey(data);
     console.log(graph);
     // Loop through the nodes
@@ -277,14 +275,10 @@
 
         svgNodeswide.append('svg:image')
                       .classed("logo", true)
-                      .attr("x", d => d.x0)
-                      .attr("y", d => d.y0+2)
-                      .attr("width", d => d.height)
-                      .attr("height", d => d.width*margin_x/2)
-                      .attr("transform", function(d){
-                          return "translate(-14, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;                      })
-                      .attr("style", function(d){
-                          return "-webkit-transform: translate(-14, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;})
+                      .attr("x", d => d.x0 - 25)
+                      .attr("y", d => d.y0 )
+                      .attr("width", d => d.width*margin_x/2)
+                      .attr("height", d => d.height)
                       .filter(function(d) { return d.x0 < width / 4; })
                       .attr('href', function(d,i) { return "imgs/" + d.id + '.png';}) 
                       .attr("opacity", 1)
@@ -293,7 +287,7 @@
 
         svgNodeswide.append("rect")
                       .classed("logo", true)
-                      .attr("x", d => d.x0-20)
+                      .attr("x", d => d.x0 - 20)
                       .attr("y", d => d.y0)
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
