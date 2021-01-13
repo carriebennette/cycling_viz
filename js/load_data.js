@@ -1,4 +1,4 @@
-       //add in hover captions for each team and team transfers (created in R)
+    //add in hover captions for each team and team transfers (created in R)
     const captions = [
         {id:"deceuninck-quick-step-20", 
          caption: "Ever-consistent Deceunick had another stellar season, retaining almost it's entire roster.  The lack of turnover in Patrick Lefevre's squad may help explain it's perennial performance.",
