@@ -1,9 +1,9 @@
 (function () {
     
-    const margin_x = 20;
-    const margin_y = 10;
-    const width = 40;
-    const height = 100;
+    const margin_x = 30;
+    const margin_y = 0;
+    const width = 50;
+    const height = 50;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
     const nodePadding = 0.5;
@@ -65,7 +65,7 @@
       d3.select("#tooltip")
         .style("left", (d3.event.pageX - 20) + "px")   
         .style("top", (d3.event.pageY + 20) + "px")
-        .html('<p class= "tooltip-rider">' + d.rider + "</p>" + 
+        .html('<p class= "tooltip-rider">' + d.rider + "</p><br>" + 
             '<p class= "tooltip-team">' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
         .classed("hidden", false);
     }
@@ -132,12 +132,22 @@
 
       console.log(tooltip);
       d3.select("#default")
-        .classed("hidden", true);
+          .classed("hidden", true);
 
-      d3.select("#tooltip")
-          .style("left", (d3.event.pageX - 20) + "px")   
-          .style("top", (d3.event.pageY + 20) + "px")
+      d3.select("#teamCaption")
           .html('<p>' + tooltip[d].caption + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderIn")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderOut")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderStay")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -149,12 +159,20 @@
       svg.selectAll("rect.node")
         .transition().duration(200)
         .attr("opacity", nodeOpacity);
-      d3.select("#default")
+              d3.select("#default")
           .classed("hidden", false);
 
-      d3.select("#tooltip")
+      d3.select("#teamCaption")
         .classed("hidden", true);
 
+      d3.select("#riderIn")
+        .classed("hidden", true);
+
+      d3.select("#riderOut")
+        .classed("hidden", true);
+
+      d3.select("#riderStay")
+        .classed("hidden", true);
     }
 
     function mouseoverLogo(node, d) {
@@ -167,11 +185,21 @@
       d3.select("#default")
           .classed("hidden", true);
 
-      d3.select("#tooltip")
-        .style("left", (d3.event.pageX - 20) + "px")   
-        .style("top", (d3.event.pageY + 20) + "px")
+      d3.select("#teamCaption")
         .html('<p>' + tooltip[d].caption + "</p>")
         .classed("hidden", false);
+
+      d3.select("#riderIn")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderOut")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderStay")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .classed("hidden", false);
 
     }
   
@@ -186,6 +214,14 @@
       d3.select("#teamCaption")
         .classed("hidden", true);
 
+      d3.select("#riderIn")
+        .classed("hidden", true);
+
+      d3.select("#riderOut")
+        .classed("hidden", true);
+
+      d3.select("#riderStay")
+        .classed("hidden", true);
     }
  
     function reduceUnique(previous, current) {
@@ -206,18 +242,18 @@
     const svg = d3.select("#canvas")
                   .attr("viewBox", `0 0 ${width} ${height}`)
                   .style("background-color", svgBackground)
-                  .attr("transform", `translate(350,${margin_y})`)
+                  .attr("transform", "translate(0," + height + ")rotate(-270)")
                   .append("g");
     
     // Define our sankey instance
-    const graphSize = [width/1.25, height];
+    const graphSize = [width/3.5, height];
     const sankey = d3.sankey()
                      .size(graphSize)
                      .nodeId(d => d.id)
                      .nodeWidth(nodeWidth)
                      .nodePadding(nodePadding)
                      .nodeAlign(nodeAlignment)
-                     .nodeSort(function(a, b) {return d3.descending(a.value, b.value); });
+                     .nodeSort(function(a, b) {return d3.ascending(a.value, b.value); });
     let graph = sankey(data);
     console.log(graph);
     // Loop through the nodes
@@ -239,10 +275,12 @@
 
         svgNodeswide.append('svg:image')
                       .classed("logo", true)
-                      .attr("x", d => d.x0 - 20)
-                      .attr("y", d => d.y0 )
-                      .attr("width", d => d.width*margin_x/2)
-                      .attr("height", d => d.height)
+                      .attr("x", d => d.x0)
+                      .attr("y", d => d.y0+2)
+                      .attr("width", d => d.height)
+                      .attr("height", d => d.width*margin_x/2)
+                      .attr("transform", function(d){
+                          return "translate(-14, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;})
                       .filter(function(d) { return d.x0 < width / 4; })
                       .attr('href', function(d,i) { return "imgs/" + d.id + '.png';}) 
                       .attr("opacity", 1)
@@ -251,7 +289,7 @@
 
         svgNodeswide.append("rect")
                       .classed("logo", true)
-                      .attr("x", d => d.x0 - 10)
+                      .attr("x", d => d.x0-20)
                       .attr("y", d => d.y0)
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
