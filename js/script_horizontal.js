@@ -65,7 +65,7 @@
       d3.select("#tooltip")
       	.style("left", (d3.event.pageX - 20) + "px")   
       	.style("top", (d3.event.pageY + 20) + "px")
-      	.html('<p class= "tooltip-rider">' + d.rider + "</p>" + 
+      	.html('<p class= "tooltip-rider">' + d.rider + "</p><br>" + 
         		'<p class= "tooltip-team">' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
         .classed("hidden", false);
     }
@@ -139,15 +139,15 @@
           .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "THE NEW BLOOD </p><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT THE SQUAD</p><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(12px + (24 - 12) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -190,15 +190,15 @@
         .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "THE NEW BLOOD </p><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "LEFT THE SQUAD</p><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(10px + (24 - 10) * ((100vw - 300px) / (1600 - 300)));">' + "STUCK AROUND </p><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
