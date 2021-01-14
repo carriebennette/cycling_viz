@@ -66,7 +66,7 @@
         .style("left", (d3.event.pageX - 20) + "px")   
         .style("top", (d3.event.pageY + 20) + "px")
         .html('<p class= "tooltip-rider">' + d.rider + "</p>" + 
-            '<p class= "tooltip-team">' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
+            '<p class= "tooltip-team"><br>' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
         .classed("hidden", false);
     }
     
