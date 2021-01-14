@@ -1,7 +1,7 @@
 (function () {
     
     const margin_x = 30;
-    const margin_y = 50;
+    const margin_y = 30;
     const width = 100;
     const height = 100;
     const svgBackground = "#fff";
@@ -241,8 +241,7 @@
     //set up svg
     const svg = d3.select("#canvas")
                   .attr("viewBox", `-30 0 ${width} ${height}`)
-                  .style("background-color", svgBackground)
-                  .attr("transform", `translate(0 ,${margin_y})`)
+                  .attr("transform", `translate(0, 0)`)
                   .append("g");
     
     // Define our sankey instance
