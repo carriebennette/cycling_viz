@@ -1,7 +1,7 @@
 (function () {
     
     const margin_x = 30;
-    const margin_y = 20;
+    const margin_y = 50;
     const width = 100;
     const height = 100;
     const svgBackground = "#fff";
