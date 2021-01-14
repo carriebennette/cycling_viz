@@ -50,7 +50,6 @@ h2 {
 
 .text{	
 	grid-row-start: 3;
-	padding: 1%;
 	z-index: 2;
 }
 
@@ -61,13 +60,14 @@ h2 {
 	grid-row: span 1;
 }
 
-
 #teamCaption {
+	padding-left: 1%;
 	grid-column-start: 1;
 	grid-column-end: 2;
 }
 
 #default {
+	padding-left: 1%;
 	grid-column-start: 1;
 	grid-column-end: 3;
 }
@@ -77,12 +77,12 @@ h2 {
 	grid-column-end: 3;
 }
 
-#riderOut {
+#riderStay {
 	grid-column-start: 3;
 	grid-column-end: 4;
 }
 
-#riderStay {
+#riderOut {
 	grid-column-start: 4;
 	grid-column-end: 5;
 }
@@ -92,6 +92,7 @@ h2 {
 	grid-column-end: 6;
 	color: #ffffff;
 }
+
 
 #tooltip, #teamCaption, #RiderIn, #RiderOut, #default {
 	z-index: 2;
@@ -128,13 +129,38 @@ h2 {
 }
 
 .cls-1{
+	z-index: 4;
 	fill:#fff;
 }
 .cls-2, .cls-3 {
 	fill:#4d4d4d;
 }
 .cls-3 {
-	font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
-	font-family:'calder-script', Lato;
+	font-size: calc(28px + (15 - 28) * ((100vw - 300px) / (1600 - 300))); /*not typo*/
+	font-family:'calder-script';
 	font-weight:300;
+}
+
+.hide_mobile{
+	display: block;
+}
+
+.hide_desktop{
+	display: none;
+}
+
+@media (max-width: 800px) {
+	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
+		grid-row-start: 4;
+	}
+	#teamCaption, #default{
+		padding-left: 10%;
+	}
+
+	.hide_desktop{
+		display: block;
+	}
+	.hide_mobile{
+		display: none;
+	}
 }
