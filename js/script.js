@@ -240,7 +240,7 @@
 
     //set up svg
     const svg = d3.select("#canvas")
-                  .attr("viewBox", `-30 0 ${width} ${height}`)
+                  .attr("viewBox", `-30 -10 ${width} ${height}`)
                   .attr("transform", `translate(0, 0)`)
                   .append("g");
     
