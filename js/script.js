@@ -1,9 +1,9 @@
 (function () {
     
     const margin_x = 30;
-    const margin_y = 0;
+    const margin_y = 20;
     const width = 100;
-    const height = 80;
+    const height = 100;
     const svgBackground = "#fff";
     const nodeWidth = 1.3;
     const nodePadding = 0.5;
@@ -139,15 +139,15 @@
           .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>"  + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderStay")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
-          .classed("hidden", false);
-      
-      d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -190,15 +190,15 @@
         .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p>' + "<u>Joined: <br></u>" + tooltip[d].in.join("<br>") + "</p>")
-          .classed("hidden", false);
-
-      d3.select("#riderOut")
-          .html('<p>' + "<u>Left: <br></u>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p>' + "<u>Stuck around: <br></u>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .classed("hidden", false);
+
+      d3.select("#riderOut")
+          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -240,9 +240,9 @@
 
     //set up svg
     const svg = d3.select("#canvas")
-                  .attr("viewBox", `-25 -10 ${width} ${height}`)
+                  .attr("viewBox", `-30 0 ${width} ${height}`)
                   .style("background-color", svgBackground)
-                  .attr("transform", `translate(300 ,${margin_y})`)
+                  .attr("transform", `translate(0 ,${margin_y})`)
                   .append("g");
     
     // Define our sankey instance
