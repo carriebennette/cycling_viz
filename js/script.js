@@ -1,7 +1,7 @@
 (function () {
     
     const margin_x = 30;
-    const margin_y = 30;
+    const margin_y = 0;
     const width = 100;
     const height = 100;
     const svgBackground = "#fff";
@@ -66,7 +66,7 @@
         .style("left", (d3.event.pageX - 20) + "px")   
         .style("top", (d3.event.pageY + 20) + "px")
         .html('<p class= "tooltip-rider">' + d.rider + "</p>" + 
-            '<p class= "tooltip-team"><br>' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
+            '<p class= "tooltip-team">' + d.team_name_2020 + arrow + d.team_name_2021 + "</p>")
         .classed("hidden", false);
     }
     
@@ -240,8 +240,8 @@
 
     //set up svg
     const svg = d3.select("#canvas")
-                  .attr("viewBox", `-30 -10 ${width} ${height}`)
-                  .attr("transform", `translate(0, 0)`)
+                  .attr("viewBox", `-30 -6 ${width} ${height}`)
+                  .attr("transform", `translate(0 ,0)`)
                   .append("g");
     
     // Define our sankey instance
