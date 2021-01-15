@@ -174,21 +174,8 @@ h2 {
 		grid-row-start: 4;
 	}
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		padding: 0px;
-	}
-	#teamCaption, #default{
-		padding-left: 10px;
+		padding: 10px;
 	}
 }
 
-@media (min-width: 450px) and (max-width: 736px){
-	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		grid-row-start: 4;
-	}
-	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		padding: 10px;
-	}
-	#teamCaption, #default{
-		padding-left: 10px;
-	}
-}
+
