@@ -3,7 +3,7 @@ body{
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 	color: #767676;
 	font-weight: 200;
-	font-size: calc(6px + (20 - 6) * ((100vw - 300px) / (1600 - 300)));
+	font-size: calc(6px + (22 - 6) * ((100vw - 300px) / (1600 - 300)));
 	text-align: center;
 }
 
@@ -14,7 +14,7 @@ p {
 .container {
  	display: grid;
  	grid-template-columns: 40% 20% 20% 19% 1%; /* last column is placeholder to stop flickering */
- 	grid-template-rows: 10% 21% 35% 33%;
+ 	grid-template-rows: 10% 20% 30% 33%;
 }
 
 
@@ -136,9 +136,13 @@ h2 {
 	fill:#4d4d4d;
 }
 .cls-3 {
-	font-size: calc(28px + (20 - 28) * ((100vw - 300px) / (1600 - 300))); /*not typo*/
+	font-size: 25px; /*not typo*/
 	font-family:'calder-script';
 	font-weight:300;
+}
+
+.cls-4 {
+	font-size: 35px; /*not typo*/
 }
 
 .hide_mobile{
@@ -153,13 +157,6 @@ h2 {
 @media (max-width: 1025px){
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
 		padding-top: 40px;
-	}
-
-	.hide_desktop{
-		display: block;
-	}
-	.hide_mobile{
-		display: none;
 	}
 }
 
@@ -176,6 +173,18 @@ h2 {
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
 		padding: 10px;
 	}
+	.hide_desktop{
+		display: block;
+	}
+	.hide_mobile{
+		display: none;
+	}
+}
 }
 
 
+@media (width: 768px){
+	.container {
+	 	grid-template-rows: 10% 25% 30% 33%;
+	}
+}
