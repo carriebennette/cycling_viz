@@ -171,7 +171,7 @@ h2 {
 		grid-row-start: 4;
 	}
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		padding: 20px;
+		padding: 22px;
 	}
 	.hide_desktop{
 		display: block;
