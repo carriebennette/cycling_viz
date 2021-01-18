@@ -139,15 +139,15 @@
           .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300)));  line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -190,15 +190,15 @@
         .classed("hidden", false);
 
       d3.select("#riderIn")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "NEW BLOOD </p><br><p>" + tooltip[d].in.join("<br>") + "</p>")
           .classed("hidden", false);
 
       d3.select("#riderStay")
-          .html('<p style="font-family: calder-script, sans-serif; font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "STUCK AROUND </p><br><p>" + tooltip[d].stay.join("<br>") + "</p>")
           .classed("hidden", false);
           
       d3.select("#riderOut")
-          .html('<p style="font-family: calder-script, sans-serif;font-size: calc(9px + (24 - 9) * ((100vw - 300px) / (1600 - 300))); line-height: 0.5;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
+          .html('<p style="font-family: calder-script, sans-serif;">' + "LEFT</p><br><p>" + tooltip[d].out.join("<br>") + "</p>")
           .classed("hidden", false);
 
     }
@@ -276,12 +276,11 @@
         svgNodeswide.append('svg:image')
                       .classed("logo", true)
                       .attr("x", d => d.x0)
-                      .attr("y", d => d.y0)
+                      .attr("y", function(d){ return d.x0 < width / 4 ? d.y0: d.y0 + 10;})
                       .attr("width", d => d.height)
                       .attr("height", d => d.width*margin_x/2)
                       .attr("transform", function(d){
                           return "translate(-14, " + d.height + ")rotate(270," + d.x0 + "," + d.y0 + ")" ;})
-                      .filter(function(d) { return d.x0 < width / 4; })
                       .attr('href', function(d,i) { return "imgs/" + d.id + '.png';}) 
                       .attr("opacity", 1)
                       .attr("stroke", "black")
@@ -289,17 +288,17 @@
 
         svgNodeswide.append("rect")
                       .classed("logo", true)
-                      .attr("x", d => d.x0-20)
+                      .attr("x", function(d){ return d.x0 < width/4 ? d.x0 - 20: d.x0 + 2;})
                       .attr("y", d => d.y0)
                       .attr("width", d => d.width*margin_x/2)
                       .attr("height", d => d.height)
-                      .filter(function(d) { return d.x0 < width ; })
                       .attr("fill", d => "white")
                       .attr("opacity", 0)
                       .attr("stroke", "black")
                       .attr("stroke-width", 0)
                       .on("mouseover", mouseoverLogo)
                       .on("mouseout", mouseoutLogo);
+
     //regular sankey nodes
     let svgNodes = svg.append("g")
                       .classed("nodes", true)
