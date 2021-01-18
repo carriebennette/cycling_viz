@@ -14,7 +14,7 @@ p {
 .container {
  	display: grid;
  	grid-template-columns: 40% 20% 20% 19% 1%; /* last column is placeholder to stop flickering */
- 	grid-template-rows: 10% 20% 30% 33%;
+ 	grid-template-rows: 10% 21% 30% 33%;
 }
 
 
@@ -181,9 +181,8 @@ h2 {
 	}
 }
 
-
-@media (width: 768px){
+@media (max-width: 450px){
 	.container {
-	 	grid-template-rows: 10% 25% 30% 33%;
+ 			grid-template-rows: 10% 18% 30% 33%;
 	}
 }
