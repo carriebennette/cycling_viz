@@ -1,7 +1,7 @@
 
 body{
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-	color: #767676;
+	color: #383838;
 	font-weight: 200;
 	text-align: center;
 	font-size: calc(6px + (22 - 6) * ((100vw - 300px) / (1600 - 300)));
