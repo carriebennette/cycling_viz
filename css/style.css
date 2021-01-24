@@ -3,8 +3,8 @@ body{
 	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 	color: #767676;
 	font-weight: 200;
-	font-size: calc(6px + (22 - 6) * ((100vw - 300px) / (1600 - 300)));
 	text-align: center;
+	font-size: calc(6px + (22 - 6) * ((100vw - 300px) / (1600 - 300)));
 }
 
 p {
@@ -13,14 +13,14 @@ p {
 
 .container {
  	display: grid;
- 	grid-template-columns: 40% 20% 20% 19% 1%; /* last column is placeholder to stop flickering */
- 	grid-template-rows: 10% 21% 30% 33%;
+ 	grid-template-columns: 33% 33% 33% 1%; /* last column is placeholder to stop flickering */
+ 	grid-template-rows: 5% 17% 3% 20% 50%;
 }
 
 
 #heading {
 	grid-column-start: 1;
-	grid-column: span 5;
+	grid-column: span 2;
 	grid-row-start: 1;
 }
 
@@ -38,61 +38,81 @@ h1 {
   	letter-spacing: -.15rem;
 	margin: 0px 0px 0px 10px;
 	padding-top: 10px;
+	text-align: left;
 }
 
 h2 {
 	color: #333333;
-	text-align: center;
 	font-weight: 200;
 	font-size: calc(10px + (32 - 10) * ((100vw - 280px) / (1600 - 280)));
 	margin: 0px 0px 0px 10px;
+	text-align: left;
 }
 
 .text{	
+	text-align: center;
 	grid-row-start: 3;
 	z-index: 2;
 }
 
 #chart {
 	grid-column-start: 1;
-	grid-column-end: 6;
+	grid-column-end: 5;
 	grid-row-start: 2;
 	grid-row: span 1;
+}
+
+#legend_desktop {
+	padding-top: 5%;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+}
+
+#legend {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: 5;
 }
 
 #teamCaption {
 	padding-left: 1%;
 	grid-column-start: 1;
-	grid-column-end: 2;
+	grid-column-end: 5;
+	grid-row-start: 3;
 }
 
 #default {
 	padding-left: 1%;
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 5;
+	grid-row-start: 3;
 }
 
 #riderIn {
-	grid-column-start: 2;
-	grid-column-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 4;
 }
 
 #riderStay {
-	grid-column-start: 3;
-	grid-column-end: 4;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
 }
 
 #riderOut {
-	grid-column-start: 4;
-	grid-column-end: 5;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 4;
 }
 
 #filler {
-	grid-column-start: 5;
-	grid-column-end: 6;
+	grid-column-start: 4;
+	grid-column-end: 5;
 	color: #ffffff;
+	grid-row-start: 4;
 }
-
 
 #tooltip, #teamCaption, #RiderIn, #RiderOut, #default {
 	z-index: 2;
@@ -103,16 +123,13 @@ h2 {
 }
 
 #default, #teamCaption, #RiderIn, #RiderOut{
-	width: 90%;
+	width: 97%;
 }
 
 .tooltip-rider {
 	font-size: calc(8px + (22 - 8) * ((100vw - 300px) / (1600 - 300)));
 }
 
-.hidden {
-	display: none;
-}
 
 #tooltip{
 	z-index: 2;
@@ -128,22 +145,6 @@ h2 {
 	box-shadow: 3px 3px 3px rgba(0, 100, 100, 0.1);
 }
 
-.cls-1{
-	z-index: 4;
-	fill:#fff;
-}
-.cls-2, .cls-3 {
-	fill:#4d4d4d;
-}
-.cls-3 {
-	font-size: 25px; /*not typo*/
-	font-family:'calder-script';
-	font-weight:300;
-}
-
-.cls-4 {
-	font-size: 35px; /*not typo*/
-}
 
 .hide_mobile{
 	display: block;
@@ -154,11 +155,7 @@ h2 {
 }
 
 
-@media (max-width: 1025px){
-	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		padding-top: 40px;
-	}
-}
+
 
 @media (max-width: 900px){
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
@@ -167,14 +164,27 @@ h2 {
 }
 
 @media (max-width: 768px){
-	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
+	h1, h2{
+		text-align: center;
+	}
+	.container {
+ 		grid-template-rows: 6% 20% 20% 3% 33%;
+	}
+
+	#heading{
+		grid-column: span 4;
+	}
+	#teamCaption, #default {
 		grid-row-start: 4;
 	}
+	#riderIn, #riderOut, #riderStay, #filler {
+		grid-row-start: 5;
+	}
 	#teamCaption, #default, #riderIn, #riderOut, #riderStay, #filler {
-		padding: 22px;
+		padding: 20px;
 	}
 	.hide_desktop{
-		display: block;
+		display: initial;
 	}
 	.hide_mobile{
 		display: none;
@@ -183,6 +193,12 @@ h2 {
 
 @media (max-width: 450px){
 	.container {
- 			grid-template-rows: 10% 18% 30% 33%;
+ 		grid-template-rows: 6% 17% 18% 3% 33%;
 	}
 }
+
+
+.hidden {
+	display: none;
+}
+
