@@ -156,17 +156,6 @@
   			.transition().duration(200)
     		.attr("opacity", nodeOpacity);
 
-      d3.select("#teamCaption")
-        .classed("hidden", true);
-
-      d3.select("#riderIn")
-        .classed("hidden", true);
-
-      d3.select("#riderOut")
-        .classed("hidden", true);
-
-      d3.select("#riderStay")
-        .classed("hidden", true);
     }
 
     function mouseoverLogo(node, d) {
@@ -175,7 +164,6 @@
       let nonlinks = nonLinks(node);
       let links = sourceLinks(node);
       var tooltip = mergeArray(captions, data);
-
 
       d3.select("#teamCaption")
         .html('<p>' + tooltip[d].caption + "</p>")
@@ -199,7 +187,6 @@
       svgLinks.selectAll("path.link")
     	    .transition().duration(200)
     	    .attr("stroke-opacity", linkOpacity);
-
 
       d3.select("#teamCaption")
         .classed("hidden", true);
